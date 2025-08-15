@@ -7,6 +7,8 @@ export default function StateBasic({ init }) {
   // カウンタボタンクリック時にState値をインクリメントをする
   const handleClick = () => {
     setCount(() => count + 1);
+    // テンプレート文字列にして変数を${}内に入れて展開する
+    console.log(`count is ${count}`);
   };
   return (
     <>

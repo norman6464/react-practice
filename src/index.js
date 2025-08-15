@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import StateBasic from './chap3/StateBasic';
-
+import ForFilter from './chap3/ForFilter';
+import books from './chap3/books';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<StateBasic init={0} />);
+root.render(<ForFilter books={books} />);

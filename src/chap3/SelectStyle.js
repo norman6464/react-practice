@@ -1,4 +1,3 @@
-import { light } from '@mui/material/styles/createPalette';
 import './SelectStyle.css';
 import cn from 'classnames';
 // mode属性に応じて適用するスタイルを変更する
@@ -38,6 +37,8 @@ export default function SelectStyle({ mode }) {
           dark: mode === 'dark',
         },
       ])}
-    ></div>
+    >
+      こんにちは、世界！
+    </div>
   );
 }

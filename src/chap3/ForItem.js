@@ -31,7 +31,7 @@ export default function ForItem({ book }) {
       {/* だが即時関数をつかえば関数の中に直接if分をつかうことができる可読性が上がる */}
       {/* この即時関数はあくまで関数なのでこのjsxに対してreturnをしてReact要素を返さないといけない */}
       {/* 即時関数では(() => {})()の関数を()で囲んでいるから式として認識される。そして末尾の()は呼び出しの意味を持つ */}
-      {(() => {
+      {/* {(() => {
         if (book.download) {
           return (
             <dd>
@@ -42,7 +42,14 @@ export default function ForItem({ book }) {
         } else {
           return <dd>{book.summary}</dd>;
         }
-      })()}
+      })()} */}
+      {/* それでもこの即時関数では冗長になりやすいので、まずは?: && をつかえないか考える。そしてより複雑な条件式になる場合はコンポーネントを切り分けるべきである。 */}
+      {book.summary}
+      {/* {book.download ? <Download isbn={book.isbn} /> : null} */}
+      {/* &&演算子は対象がtrueなのかを見ている。 */}
+      {/* {book.download && <Download isbn={book.isbn} />} */}
+      {/* falseの場合にだけ出力したいなら、||演算子をつかう */}
+      {book.download || '×'}
     </React.Fragment>
   );
 }

@@ -1,4 +1,3 @@
-import { KingBed } from '@mui/icons-material';
 import { useRef } from 'react';
 
 // ファイルコンポーネントに関してはアプリ側から何か処理することは何もないので、

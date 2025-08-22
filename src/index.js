@@ -1,14 +1,21 @@
+/** jsxImportSource @emotion/react */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import GlobalStyle from './chap5/StyledGlobal';
-import StyledComp from './chap5/StyledComp';
+import { css, Global } from '@emotion/react';
+import EmotionJsx from './chap5/EmotionJsx';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// styled-componentを使用したものと通常のボタンを比べている
+const global = css`
+  body {
+    background-color: Yellow;
+  }
+`;
+
 root.render(
   <>
-    <GlobalStyle />
-    <StyledComp />
+    <Global style={global} />
+    <EmotionJsx />
   </>
 );
 // React（web pack）ではコードの変更が生まれたらファイル名の末尾に付けるハッシュ値が変わるのでホットリロードになる

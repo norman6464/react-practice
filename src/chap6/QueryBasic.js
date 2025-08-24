@@ -9,8 +9,9 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 const fetchWeather = async () => {
   // 処理を遅延させるダミーの休止処理
   await sleep(2000);
-  const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?
-    q=Tokyo&lang=ja&appid=58411d0400570648d5f914139a68b38f`);
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=Tokyo&lang=ja&appid=58411d0400570648d5f914139a68b38f`
+  );
 
   // 正常に終了したら、まずはボディ部分をjsonに変換する
   if (res.ok) {
@@ -22,7 +23,12 @@ const fetchWeather = async () => {
 
 export default function QueryBasic() {
   // fetchWeather関数でデータを取得
-  const { data, isLoading, isError, error } = useQuery('weather', fetchWeather);
+
+  // React Query v5 以降では、引数がオブジェクト型のみ許可となった
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ['weather'],
+    queryFn: fetchWeather,
+  });
   // ロード中であれば、ローディングメッセージを出力
   if (isLoading) {
     return <p>Loading ...</p>;
